@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="Add_Part" Height="450" Width="800">
+        Title="Add Part" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="18">
+            Add Part
+        </TextBlock>
+
+        <!--Radio Buttons-->
+        <RadioButton x:Name="add_Part_IH_Radio" Content="In-House" Width="100" Height="25" Grid.Column="4" Grid.Row="1" Margin="9,7,-88,9" />
+        <RadioButton x:Name="add_Part_Out_Radio" Content="Outsourced" Width="100" Height="25" Grid.Column="4" Grid.Row="1" Margin="91,7,-170,9" />
+
     </Grid>
 </Window>
