@@ -1,11 +1,11 @@
-﻿<Window x:Class="WPF_UI.Add_Part"
+﻿<Window x:Class="WPF_UI.Modify_Part"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="Add Part" Height="450" Width="500">
+        Title="Modify Part" Height="450" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -28,12 +28,12 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center">
-            Add Part
+            Modify Part
         </TextBlock>
 
         <!--Radio Buttons-->
-        <RadioButton x:Name="add_Part_IH_Radio" Content="In-House" Width="80" Height="25" Grid.Column="2" Grid.Row="1" Margin="13,8,69,10" VerticalAlignment="Center"/>
-        <RadioButton x:Name="add_Part_Out_Radio" Content="Outsourced" Width="80" Height="25" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Margin="93,8,81,10" VerticalAlignment="Center"/>
+        <RadioButton x:Name="mod_Part_IH_Radio" Content="In-House" Width="80" Height="25" Grid.Column="2" Grid.Row="1" Margin="13,8,69,10" VerticalAlignment="Center"/>
+        <RadioButton x:Name="mod_Part_Out_Radio" Content="Outsourced" Width="80" Height="25" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Margin="93,8,81,10" VerticalAlignment="Center"/>
 
         <!--Labels for Text Boxes-->
         <TextBlock Grid.Column="1" Grid.Row="2" Text="Part ID" FontSize="16" TextAlignment="Right" Margin="0,0,27,0" />
@@ -46,13 +46,13 @@
         <TextBlock Grid.Column="1" Grid.Row="7" Text="Company Name" FontSize="16" TextAlignment="Right" Margin="0,0,27,0" />
 
         <!--Text Boxes-->
-        <TextBox x:Name="add_Part_ID_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="2" BorderThickness="2" BorderBrush="DarkGray" Margin="7,3,17,2"/>
-        <TextBox x:Name="add_Name_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="3" BorderThickness="2" BorderBrush="DarkGray" Margin="7,2,17,3"/>
-        <TextBox x:Name="add_Inventory_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="4" BorderThickness="2" BorderBrush="DarkGray" Margin="7,3,17,4"/>
-        <TextBox x:Name="add_Price_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="5" BorderThickness="2" BorderBrush="DarkGray" Margin="7,2,17,5"/>
-        <TextBox x:Name="add_Min_TextBox" Width="70" Height="25" Grid.Column="2" Grid.Row="6" BorderThickness="2" BorderBrush="DarkGray" Margin="7,5,87,5"/>
-        <TextBox x:Name="add_Max_TextBox" Width="70" Height="25" Grid.Column="3" Grid.Row="6" BorderThickness="2" BorderBrush="DarkGray" Margin="2,5,21,5"/>
-        <TextBox x:Name="add_CompanyName_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="7" BorderThickness="2" BorderBrush="DarkGray" Margin="7,5,17,4"/>
+        <TextBox x:Name="mod_Part_ID_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="2" BorderThickness="2" BorderBrush="DarkGray" Margin="7,3,17,2"/>
+        <TextBox x:Name="mod_Name_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="3" BorderThickness="2" BorderBrush="DarkGray" Margin="7,2,17,3"/>
+        <TextBox x:Name="mod_Inventory_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="4" BorderThickness="2" BorderBrush="DarkGray" Margin="7,3,17,4"/>
+        <TextBox x:Name="mod_Price_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="5" BorderThickness="2" BorderBrush="DarkGray" Margin="7,2,17,5"/>
+        <TextBox x:Name="mod_Min_TextBox" Width="70" Height="25" Grid.Column="2" Grid.Row="6" BorderThickness="2" BorderBrush="DarkGray" Margin="7,5,87,5"/>
+        <TextBox x:Name="mod_Max_TextBox" Width="70" Height="25" Grid.Column="3" Grid.Row="6" BorderThickness="2" BorderBrush="DarkGray" Margin="2,5,21,5"/>
+        <TextBox x:Name="mod_CompanyName_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="7" BorderThickness="2" BorderBrush="DarkGray" Margin="7,5,17,4"/>
 
     </Grid>
 </Window>
