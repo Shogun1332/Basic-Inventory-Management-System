@@ -23,5 +23,15 @@ namespace WPF_UI
         {
             InitializeComponent();
         }
+
+        private void add_Part_Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void add_Part_Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

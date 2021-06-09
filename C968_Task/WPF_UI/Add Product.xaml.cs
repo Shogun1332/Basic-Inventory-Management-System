@@ -23,5 +23,30 @@ namespace WPF_UI
         {
             InitializeComponent();
         }
+
+        private void add_Prod_Search_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void parts_Add_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void product_Remove_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void product_Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void product_Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

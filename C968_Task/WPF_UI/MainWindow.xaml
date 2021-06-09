@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d" FontFamily="Segoe UI Light"
-        Title="Main Screen" Height="450" Width="925">
+        Title="Inventory Management System - IMS" Height="450" Width="925">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />

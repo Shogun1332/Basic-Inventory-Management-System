@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="Modify Product" Height="600" Width="800">
+        Title="IMS - Modify Product" Height="600" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -78,15 +78,15 @@
         <TextBlock Grid.Column="4" Grid.Row="4" Text="Parts included in Product" FontSize="16" VerticalAlignment="Bottom"/>
 
         <!--Buttons for DataGrids-->
-        <Button x:Name="mod_Parts_Add_Button" Content="Add" Grid.Column="4" Grid.Row="3" Height="25" Width="50" HorizontalAlignment="Right" Click=""/>
-        <Button x:Name="mod_Product_Remove_Button" Content="Remove" Grid.Column="4" Grid.Row="6" Height="25" Width="50" HorizontalAlignment="Right" Click=""/>
+        <Button x:Name="mod_Parts_Add_Button" Content="Add" Grid.Column="4" Grid.Row="3" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Parts_Add_Button_Click"/>
+        <Button x:Name="mod_Product_Remove_Button" Content="Remove" Grid.Column="4" Grid.Row="6" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Remove_Button_Click"/>
         
         <!--Save and Cancel Buttons-->
-        <Button x:Name="mod_Product_Save_Button" Content="Save" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Margin="0,0,60,0" Click=""/>
-        <Button x:Name="mod_Product_Cancel_Button" Content="Cancel" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Click=""/>
+        <Button x:Name="mod_Product_Save_Button" Content="Save" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Margin="0,0,60,0" Click="mod_Product_Save_Button_Click"/>
+        <Button x:Name="mod_Product_Cancel_Button" Content="Cancel" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Cancel_Button_Click"/>
 
         <!--Weird unnecessary search function-->
-        <Button x:Name="mod_Prod_Search_Button" Content="Search" Grid.Column="4" Grid.Row="1" Height="25" Width="50" VerticalAlignment="Top" Click=""/>
+        <Button x:Name="mod_Prod_Search_Button" Content="Search" Grid.Column="4" Grid.Row="1" Height="25" Width="50" VerticalAlignment="Top" Click="mod_Prod_Search_Button_Click"/>
         <TextBox x:Name="modd_Prod_Search_TextBox" Grid.Column="4" Grid.Row="1" Height="25" Width="180" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="2" BorderBrush="DarkGray"/>
     </Grid>
 </Window>

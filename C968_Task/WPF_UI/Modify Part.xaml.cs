@@ -17,11 +17,21 @@ namespace WPF_UI
     /// <summary>
     /// Interaction logic for Add_Part.xaml
     /// </summary>
-    public partial class Add_Part : Window
+    public partial class Modify_Part : Window
     {
-        public Add_Part()
+        public Modify_Part()
         {
             InitializeComponent();
+        }
+
+        private void mod_Part_Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mod_Part_Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

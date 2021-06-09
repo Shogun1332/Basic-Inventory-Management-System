@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="Modify Part" Height="450" Width="500">
+        Title="IMS - Modify Part" Height="450" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -17,6 +17,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -54,5 +55,9 @@
         <TextBox x:Name="mod_Max_TextBox" Width="70" Height="25" Grid.Column="3" Grid.Row="6" BorderThickness="2" BorderBrush="DarkGray" Margin="2,5,21,5"/>
         <TextBox x:Name="mod_CompanyName_TextBox" Width="140" Height="25" Grid.Column="2" Grid.Row="7" BorderThickness="2" BorderBrush="DarkGray" Margin="7,5,17,4"/>
 
+        <!--Save and Cancel Buttons-->
+        <Button x:Name="mod_Part_Save_Button" Content="Save" Grid.Column="3" Grid.Row="8" Height="25" Width="50" HorizontalAlignment="Right" Margin="0,0,10,0" Click="mod_Part_Save_Button_Click" />
+        <Button x:Name="mod_Part_Cancel_Button" Content="Cancel" Grid.Column="4" Grid.Row="8" Height="25" Width="50" Click="mod_Part_Cancel_Button_Click" />
+        
     </Grid>
 </Window>

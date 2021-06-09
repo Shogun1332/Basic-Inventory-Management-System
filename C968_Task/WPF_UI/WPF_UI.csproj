@@ -74,6 +74,9 @@
     <Compile Include="Add Part.xaml.cs">
       <DependentUpon>Add Part.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IMSCore.cs" />
+    <Compile Include="Inhouse.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Modify Product.xaml.cs">
       <DependentUpon>Modify Product.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,9 @@
     <Compile Include="Modify Part.xaml.cs">
       <DependentUpon>Modify Part.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Outsourced.cs" />
+    <Compile Include="Part.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

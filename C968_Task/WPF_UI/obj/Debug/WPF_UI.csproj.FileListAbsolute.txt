@@ -13,3 +13,5 @@ E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\WPF
 E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\WPF_UI.csproj.CoreCompileInputs.cache
 E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\WPF_UI.exe
 E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\WPF_UI.pdb
+E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\Add Part.g.cs
+E:\Users\tolmd\Documents\C# Projects\C968-Project\C968_Task\WPF_UI\obj\Debug\Modify Part.g.cs
