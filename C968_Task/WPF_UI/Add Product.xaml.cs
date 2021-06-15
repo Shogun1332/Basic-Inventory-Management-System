@@ -46,7 +46,7 @@ namespace WPF_UI
 
         private void product_Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

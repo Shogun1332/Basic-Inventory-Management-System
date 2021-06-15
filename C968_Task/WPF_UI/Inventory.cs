@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WPF_UI
 {
@@ -50,6 +51,96 @@ namespace WPF_UI
             starterProd3.IncludedParts.Add(starterPart2);
             starterProd3.IncludedParts.Add(starterPart3);
             starterProd3.IncludedParts.Add(starterPart4);
+
+        }
+
+        //Add Methods
+        public static void AddProduct(Product product)
+        {
+            Products.Add(product);
+        }
+
+        public static void AddPart(Part part)
+        {
+            Parts.Add(part);
+        }
+
+
+        //Removal Methods
+        public bool RemoveProduct(int ProdID)
+        {
+            bool prodFound = false;
+            foreach(Product product in Products)
+            {
+                if (ProdID == product.ProductID)
+                {
+                    prodFound = true;
+                    if(prodFound == true)
+                    {
+                        Products.Remove(product);
+                    }
+                }
+                else
+                {
+                    prodFound = false;
+                    MessageBox.Show("Unable to remove Product.");
+                }
+            }
+            return prodFound;
+        }
+
+        public bool RemovePart(int PartID)
+        {
+            bool partFound = false;
+            foreach (Part part in Parts)
+            {
+                if (PartID == part.PartID)
+                {
+                    partFound = true;
+                    if (partFound)
+                    {
+                        Parts.Remove(part);
+                    }
+                }
+                else
+                {
+                    partFound = false;
+                    MessageBox.Show("Unable to remove Part.");
+                }
+            }
+            return partFound;
+        }
+
+        //Searching Methods
+        public static Product SearchProducts(int ProdID) //not all code paths return a value
+        {
+            foreach (Product product in Products)
+            {
+                if (product.ProductID == ProdID)
+                {
+                    return product;
+                }
+                Product emptyProd = new Product();
+                return emptyProd;
+            }
+        }
+
+        public static Part SearchParts(int PartID) //not all code paths return a value
+        {
+            foreach (Part part in Parts)
+            {
+                if (part.PartID == PartID)
+                {
+                    return part;
+                }
+                Part emptyPart = null;
+                return emptyPart;
+            }
+        }
+
+        //Update Methods
+        public static void updateProduct(int ProdID, Product updatedProd)
+        {
 
         }
 

@@ -31,7 +31,7 @@ namespace WPF_UI
 
         private void mod_Part_Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

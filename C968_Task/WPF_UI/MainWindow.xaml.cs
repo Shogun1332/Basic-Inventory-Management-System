@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace WPF_UI
 {
@@ -23,6 +24,17 @@ namespace WPF_UI
         public MainWindow()
         {
             InitializeComponent();
+            LoadFormData();
+
+        }
+
+        public void LoadFormData()
+        {
+            Inventory.GenerateStartingData();
+
+            parts_DataGrid.ItemsSource = Inventory.Parts;
+            products_DataGrid.ItemsSource = Inventory.Products;
+            
         }
 
         private void parts_Search_Button_Click(object sender, RoutedEventArgs e)
@@ -36,12 +48,12 @@ namespace WPF_UI
 
         private void parts_Add_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            new Add_Part().ShowDialog();
         }
 
         private void parts_Edit_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            new Modify_Part().ShowDialog();
         }
 
         private void parts_Delete_Button_Click(object sender, RoutedEventArgs e)
@@ -51,12 +63,12 @@ namespace WPF_UI
 
         private void products_Add_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            new Add_Product().ShowDialog();
         }
 
         private void products_Edit_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            new Modify_Product().ShowDialog();
         }
 
         private void products_Delete_Button_Click(object sender, RoutedEventArgs e)
@@ -66,7 +78,7 @@ namespace WPF_UI
 
         private void exit_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

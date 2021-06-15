@@ -22,7 +22,17 @@ namespace WPF_UI
         public Add_Part()
         {
             InitializeComponent();
+
+            if ((bool)add_Part_IH_Radio.IsChecked)
+            {
+                IHorOS.Text = "Machine ID";
+            }
+            else
+            {
+                IHorOS.Text = "Company Name";
+            }
         }
+
 
         private void add_Part_Save_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -31,7 +41,8 @@ namespace WPF_UI
 
         private void add_Part_Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            //Inventory.RemovePart(0);
+            this.Close();
         }
     }
 }

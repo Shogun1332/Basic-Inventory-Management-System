@@ -58,5 +58,16 @@ namespace WPF_UI
             IncludedParts.Add(part);
         }
 
+        public void RemoveIncludedPart(int partID)
+        {
+            foreach(Part part in IncludedParts)
+            {
+                if(part.PartID == partID)
+                {
+                    IncludedParts.Remove(part);
+                    break;
+                }
+            }
+        }
     }
 }
