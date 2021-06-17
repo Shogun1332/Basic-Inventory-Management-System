@@ -53,6 +53,7 @@ namespace WPF_UI
             Max = max;
         }
 
+        //Product Methods
         public void AddIncludedPart(Part part)
         {
             IncludedParts.Add(part);
@@ -65,9 +66,23 @@ namespace WPF_UI
                 if(part.PartID == partID)
                 {
                     IncludedParts.Remove(part);
-                    break;
+                    return;
                 }
             }
+            IncludedParts.ResetBindings();
+        }
+
+        public Part SearchIncludedPart(int PartID)
+        {
+            foreach (Part part in IncludedParts)
+            {
+                if (part.PartID == PartID)
+                {
+                    return part;
+                }
+            }
+            InHousePart emptyIHPart = new InHousePart();
+            return emptyIHPart;
         }
     }
 }

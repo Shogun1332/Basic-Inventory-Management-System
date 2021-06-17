@@ -39,11 +39,27 @@ namespace WPF_UI
 
         private void parts_Search_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (parts_Search_TextBox.Text.Count() > 0)
+            {
+                var filtered = Inventory.Parts.Where<Part>(part => part.PartID.ToString().Equals(parts_Search_TextBox.Text));
+                parts_DataGrid.ItemsSource = filtered;
+            }
+            else
+            {
+                parts_DataGrid.ItemsSource = Inventory.Parts;
+            }
         }
         private void products_Search_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (products_Search_TextBox.Text.Count() > 0)
+            {
+                var filtered = Inventory.Products.Where<Product>(product => product.ProductID.ToString().Equals(products_Search_TextBox.Text));
+                products_DataGrid.ItemsSource = filtered;
+            }
+            else
+            {
+                products_DataGrid.ItemsSource = Inventory.Products;
+            }
         }
 
         private void parts_Add_Button_Click(object sender, RoutedEventArgs e)
@@ -53,12 +69,35 @@ namespace WPF_UI
 
         private void parts_Edit_Button_Click(object sender, RoutedEventArgs e)
         {
-            new Modify_Part().ShowDialog();
+            if (parts_DataGrid.SelectedItem.GetType() == typeof(InHousePart))
+            {
+                InHousePart IHPart = (InHousePart)parts_DataGrid.SelectedItem;
+                new Modify_Part(IHPart).ShowDialog();
+            }
+            else
+            {
+                OutsourcedPart OSPart = (OutsourcedPart)parts_DataGrid.SelectedItem;
+                new Modify_Part(OSPart).ShowDialog();
+            }
+            
         }
 
         private void parts_Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Part delPart = (Part)parts_DataGrid.SelectedItem;
+            int delPartID = delPart.PartID;
+            string confirmDelete = "Are you sure you want to delete this part?";
+            string delCaption = "Deletion Warning";
+            var delResult = MessageBox.Show(confirmDelete, delCaption, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            
+            if (delResult == MessageBoxResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Inventory.RemovePart(delPartID);
+            }
         }
 
         private void products_Add_Button_Click(object sender, RoutedEventArgs e)
@@ -68,12 +107,31 @@ namespace WPF_UI
 
         private void products_Edit_Button_Click(object sender, RoutedEventArgs e)
         {
-            new Modify_Product().ShowDialog();
+            Product product = (Product)products_DataGrid.SelectedItem;
+            new Modify_Product(product).ShowDialog();
         }
 
         private void products_Delete_Button_Click(object sender, RoutedEventArgs e)
         {
+            Product delProd = (Product)products_DataGrid.SelectedItem;
+            int delProdID = delProd.ProductID;
+            string confirmDelete = "Are you sure you want to delete this product?";
+            string delCaption = "Deletion Warning";
+            var delResult = MessageBox.Show(confirmDelete, delCaption, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+            if (delResult == MessageBoxResult.No)
+            {
+                return;
+            }
+            else if (delProd.IncludedParts.Count != 0)
+            {
+                MessageBox.Show("Unable to delete product while there are parts associated with it. Please remove the included parts and try again.", "Removal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else
+            {
+                Inventory.RemoveProduct(delProdID);
+            }
         }
 
         private void exit_Button_Click(object sender, RoutedEventArgs e)

@@ -48,14 +48,15 @@
         <Button x:Name="products_Delete_Button" Content="Delete" Width="40" Grid.Column="3" Grid.Row="5" Height="25" RenderTransformOrigin="3.163,0.62" Margin="363,3,12,1" Click="products_Delete_Button_Click" />
         
         <!--Exit Button-->
-        <Button x:Name="exit_Button" Content="Exit" Grid.Column="3" Grid.Row="6" Height="25" Width="40" RenderTransformOrigin="4.95,1.2" Margin="371,10,20,-14" Click="exit_Button_Click" />
+        <Button x:Name="exit_Button" Content="Exit" Grid.Column="3" Grid.Row="6" Height="25" Width="40" RenderTransformOrigin="4.95,1.2" Margin="371,5,20,-20" Click="exit_Button_Click" />
         
+        <!--Search box-->
         <TextBox x:Name="parts_Search_TextBox" Grid.Column="1" Grid.Row="2" Height="25" Width="200" Margin="210,12,1,10" />
         <TextBox x:Name="products_Search_TextBox" Grid.Column="3" Grid.Row="2" Height="25" Width="200" Margin="230,12,1,10" />
 
-        <DataGrid Grid.Column="1" Grid.Row="3" x:Name="parts_DataGrid" Background="DimGray" BorderThickness="2" BorderBrush="Black" CanUserAddRows="True"/>
-
-        <DataGrid Grid.Column="3" Grid.Row="3" x:Name="products_DataGrid" Background="DimGray" BorderThickness="2" BorderBrush="Black"/>
+        <!--DataGrids-->
+        <DataGrid Grid.Column="1" Grid.Row="3" x:Name="parts_DataGrid" Background="White" BorderThickness="2" BorderBrush="DimGray"/>
+        <DataGrid Grid.Column="3" Grid.Row="3" x:Name="products_DataGrid" Background="White" BorderThickness="2" BorderBrush="DimGray"/>
 
 
     </Grid>

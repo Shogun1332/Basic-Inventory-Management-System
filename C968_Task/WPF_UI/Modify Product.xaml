@@ -18,75 +18,55 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="20" MaxHeight="20"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,1,0,58" Grid.RowSpan="2">
-        Modify Product
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,1,0,58" Grid.RowSpan="2">
+            Modify Product
         </TextBlock>
 
         <!--Labels for Text Boxes-->
-        <TextBlock Grid.Column="1" Grid.Row="3" Text="Product ID" FontSize="16" TextAlignment="Right"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="Name" FontSize="16" TextAlignment="Right"/>
-        <TextBlock Grid.Column="1" Grid.Row="5" Text="Inventory" FontSize="16" TextAlignment="Right"/>
-        <TextBlock Grid.Column="1" Grid.Row="6" Text="Price / Cost" FontSize="16" TextAlignment="Right"/>
-        <TextBlock Grid.Column="1" Grid.Row="7" Text="Max" FontSize="16" TextAlignment="Left" Margin="20, 5, 0, 0"/>
-        <TextBlock Grid.Column="2" Grid.Row="7" Text="Min" FontSize="16" TextAlignment="Left" Margin="40, 5, 0, 0"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Product ID" FontSize="16" TextAlignment="Right" Margin="0,0,0,33"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Name" FontSize="16" TextAlignment="Right" Margin="1,33,0,0"/>
+        <TextBlock Grid.Row="3" Text="Inventory" FontSize="16" TextAlignment="Right" Margin="20,5,0,28" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Row="3" Text="Price / Cost" FontSize="16" TextAlignment="Right" Margin="20,38,1,56" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="Max" FontSize="16" TextAlignment="Left" Margin="70,4,124,29" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="Min" FontSize="16" TextAlignment="Left" Margin="41,4,0,29" Grid.ColumnSpan="2"/>
 
         <!--Text Boxes-->
-        <TextBox x:Name="mod_Prod_ID_TextBox" Grid.Column="2" Grid.Row="3" Width="140" Height="25" Margin="14,5" BorderThickness="2" BorderBrush="DarkGray"/>
-        <TextBox x:Name="mod_Prod_Name_TextBox" Grid.Column="2" Grid.Row="4" Width="140" Height="25" Margin="14,5,13,5" BorderThickness="2" BorderBrush="DarkGray"/>
-        <TextBox x:Name="mod_Prod_Inventory_TextBox" Grid.Column="2" Grid.Row="5" Width="140" Height="25" Margin="13,5" BorderThickness="2" BorderBrush="DarkGray"/>
-        <TextBox x:Name="mod_Prod_Price_TextBox" Grid.Column="2" Grid.Row="6" Width="140" Height="25" Margin="12,5,13,5" BorderThickness="2" BorderBrush="DarkGray"/>
-        <TextBox x:Name="mod_Prod_Max_TextBox" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Width="70" Height="25" Margin="73,8,144,3" BorderThickness="2" BorderBrush="DarkGray"/>
-        <TextBox x:Name="mod_Prod_Min_TextBox" Grid.Column="2" Grid.Row="7" Width="70" Height="25" Margin="81,8,12,3" BorderThickness="2" BorderBrush="DarkGray"/>
+        <TextBox x:Name="mod_Prod_ID_TextBox" Grid.Column="2" Grid.Row="2" Width="140" Height="25" Margin="15,2,16,34" BorderThickness="2" BorderBrush="DarkGray"/>
+        <TextBox x:Name="mod_Prod_Name_TextBox" Grid.Column="2" Grid.Row="2" Width="140" Height="25" Margin="15,34,16,1" BorderThickness="2" BorderBrush="DarkGray"/>
+        <TextBox x:Name="mod_Prod_Inventory_TextBox" Grid.Column="2" Grid.Row="3" Width="140" Height="25" Margin="16,7,16,30" BorderThickness="2" BorderBrush="DarkGray"/>
+        <TextBox x:Name="mod_Prod_Price_TextBox" Grid.Column="2" Grid.Row="3" Width="140" Height="25" Margin="16,39,17,57" BorderThickness="2" BorderBrush="DarkGray" Grid.RowSpan="2"/>
+        <TextBox x:Name="mod_Prod_Max_TextBox" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Width="70" Height="25" Margin="113,6,150,31" BorderThickness="2" BorderBrush="DarkGray"/>
+        <TextBox x:Name="mod_Prod_Min_TextBox" Grid.Column="2" Grid.Row="4" Width="70" Height="25" Margin="89,6,20,31" BorderThickness="2" BorderBrush="DarkGray"/>
 
         <!--DataGrids-->
-        <DataGrid Grid.Column="4" Grid.Row="2" x:Name="mod_Parts_DataGrid" Background="DimGray" BorderThickness="2" BorderBrush="Black" CanUserAddRows="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Part ID" x:Name="all_Part_ID"/>
-                <DataGridTextColumn Header="Name" x:Name="all_Part_Name" Width="100"/>
-                <DataGridTextColumn Header="Inventory" x:Name="all_Part_Inventory" Width="80"/>
-                <DataGridTextColumn Header="Price" x:Name="all_Part_Price" Width="60"/>
-                <DataGridTextColumn Header="Min" x:Name="all_Part_Price_Min" Width="60"/>
-                <DataGridTextColumn Header="Max" x:Name="all_Part_Price_Max" Width="60"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="4" Grid.Row="5" x:Name="mod_Product_DataGrid" Background="DimGray" BorderThickness="2" BorderBrush="Black" CanUserAddRows="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Part ID" x:Name="prod_Part_ID"/>
-                <DataGridTextColumn Header="Name" x:Name="prod_Part_Name" Width="100"/>
-                <DataGridTextColumn Header="Inventory" x:Name="prod_Part_Inventory" Width="80"/>
-                <DataGridTextColumn Header="Price" x:Name="prod_Part_Price" Width="60"/>
-                <DataGridTextColumn Header="Min" x:Name="prod_Part_Price_Min" Width="60"/>
-                <DataGridTextColumn Header="Max" x:Name="prod_Part_Price_Max" Width="60"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid Grid.Column="4" Grid.Row="2" x:Name="mod_Parts_DataGrid" Background="White" BorderThickness="2" BorderBrush="DimGray" CanUserAddRows="True" Margin="0,0,0,5" Grid.RowSpan="2"/>
+        <DataGrid Grid.Column="4" Grid.Row="5" x:Name="mod_Product_DataGrid" Background="White" BorderThickness="2" BorderBrush="DimGray" CanUserAddRows="True" Margin="0,0,0,5" Grid.RowSpan="2"/>
 
         <!--Labels for DataGrids-->
         <TextBlock Grid.Column="4" Grid.Row="1" Text="All Candidate Parts" FontSize="16" VerticalAlignment="Bottom"/>
         <TextBlock Grid.Column="4" Grid.Row="4" Text="Parts included in Product" FontSize="16" VerticalAlignment="Bottom"/>
 
         <!--Buttons for DataGrids-->
-        <Button x:Name="mod_Parts_Add_Button" Content="Add" Grid.Column="4" Grid.Row="3" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Parts_Add_Button_Click"/>
-        <Button x:Name="mod_Product_Remove_Button" Content="Remove" Grid.Column="4" Grid.Row="6" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Remove_Button_Click"/>
-        
+        <Button x:Name="mod_Parts_Add_Button" Content="Add" Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Parts_Add_Button_Click"/>
+        <Button x:Name="mod_Product_Remove_Button" Content="Remove" Grid.Column="4" Grid.Row="7" VerticalAlignment="Top" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Remove_Button_Click"/>
+
         <!--Save and Cancel Buttons-->
-        <Button x:Name="mod_Product_Save_Button" Content="Save" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Margin="0,0,60,0" Click="mod_Product_Save_Button_Click"/>
-        <Button x:Name="mod_Product_Cancel_Button" Content="Cancel" Grid.Column="4" Grid.Row="7" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Cancel_Button_Click"/>
+        <Button x:Name="mod_Product_Save_Button" Content="Save" Grid.Column="4" Grid.Row="7" VerticalAlignment="Bottom" Height="25" Width="50" HorizontalAlignment="Right" Margin="0,0,60,0" Click="mod_Product_Save_Button_Click"/>
+        <Button x:Name="mod_Product_Cancel_Button" Content="Cancel" Grid.Column="4" Grid.Row="7" VerticalAlignment="Bottom" Height="25" Width="50" HorizontalAlignment="Right" Click="mod_Product_Cancel_Button_Click"/>
 
         <!--Weird unnecessary search function-->
-        <Button x:Name="mod_Prod_Search_Button" Content="Search" Grid.Column="4" Grid.Row="1" Height="25" Width="50" VerticalAlignment="Top" Click="mod_Prod_Search_Button_Click"/>
-        <TextBox x:Name="modd_Prod_Search_TextBox" Grid.Column="4" Grid.Row="1" Height="25" Width="180" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="2" BorderBrush="DarkGray"/>
+        <Button x:Name="mod_Prod_Search_Button" Content="Search" Grid.Column="4" Grid.Row="1" Height="25" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Click="mod_Prod_Search_Button_Click" Margin="0,0,75,0"/>
+        <TextBox x:Name="modd_Prod_Search_TextBox" Grid.Column="4" Grid.Row="1" Height="25" Width="180" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="2" BorderBrush="DarkGray" Grid.ColumnSpan="3" Margin="0,1,-94,0"/>
     </Grid>
 </Window>

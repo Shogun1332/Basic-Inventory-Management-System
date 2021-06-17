@@ -67,46 +67,50 @@ namespace WPF_UI
 
 
         //Removal Methods
-        public bool RemoveProduct(int ProdID)
+        public static bool RemoveProduct(int ProdID)
         {
+            List<Product> deleteList = new List<Product>();
             bool prodFound = false;
             foreach(Product product in Products)
             {
                 if (ProdID == product.ProductID)
                 {
-                    prodFound = true;
-                    if(prodFound == true)
+                    if (product.IncludedParts.Count != 0)
                     {
-                        Products.Remove(product);
+                        prodFound = true;
+                        deleteList.Add(product);
+                        return prodFound;
+                    }
+                    else
+                    {
+                        prodFound = false;
+                        MessageBox.Show("Unable to delete product while there are parts associated with it. Please remove the included parts and try again.", "Removal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return prodFound;
                     }
                 }
-                else
-                {
-                    prodFound = false;
-                    MessageBox.Show("Unable to remove Product.");
-                }
+            }
+            foreach (Product product in deleteList)
+            {
+                Products.Remove(product);
             }
             return prodFound;
         }
 
-        public bool RemovePart(int PartID)
+        public static bool RemovePart(int PartID)
         {
+            List<Part> deleteList = new List<Part>();
             bool partFound = false;
             foreach (Part part in Parts)
             {
                 if (PartID == part.PartID)
                 {
+                    deleteList.Add(part);
                     partFound = true;
-                    if (partFound)
-                    {
-                        Parts.Remove(part);
-                    }
                 }
-                else
-                {
-                    partFound = false;
-                    MessageBox.Show("Unable to remove Part.");
-                }
+            }
+            foreach (Part part in deleteList)
+            {
+                Parts.Remove(part);
             }
             return partFound;
         }
@@ -114,15 +118,17 @@ namespace WPF_UI
         //Searching Methods
         public static Product SearchProducts(int ProdID) //not all code paths return a value
         {
+            bool prodFound = false;
             foreach (Product product in Products)
             {
                 if (product.ProductID == ProdID)
                 {
+                    prodFound = true;
                     return product;
                 }
-                Product emptyProd = new Product();
-                return emptyProd;
             }
+            Product emptyProd = new Product();
+            return emptyProd;
         }
 
         public static Part SearchParts(int PartID) //not all code paths return a value
@@ -133,15 +139,85 @@ namespace WPF_UI
                 {
                     return part;
                 }
-                Part emptyPart = null;
-                return emptyPart;
+            }
+            Part emptyPart = null;
+            return emptyPart;
+        } 
+
+        //Update Methods
+        public static void UpdateProduct(int ProdID, Product updatedProd)
+        {
+            foreach (Product currentProd in Products)
+            {
+                if (currentProd.ProductID == ProdID)
+                {
+                    currentProd.Name = updatedProd.Name;
+                    currentProd.InStock = updatedProd.InStock;
+                    currentProd.Price = updatedProd.Price;
+                    currentProd.Min = updatedProd.Min;
+                    currentProd.Max = updatedProd.Max;
+                    currentProd.IncludedParts = updatedProd.IncludedParts;
+                }
             }
         }
 
-        //Update Methods
-        public static void updateProduct(int ProdID, Product updatedProd)
+        //Post-code, Not really useable, need to update on inHouse/Outsourced parts instead
+        /*public static void UpdatePart(int PartID, Part updatedPart) 
         {
+            foreach (Part currentPart in Parts)
+            {
+                if (currentPart.PartID == PartID)
+                {
+                    currentPart.Name = updatedPart.Name;
+                    currentPart.Name = updatedPart.Name;
+                    currentPart.Name = updatedPart.Name;
+                    currentPart.Name = updatedPart.Name;
+                    currentPart.Name = updatedPart.Name;
+                    currentPart.Name = updatedPart.Name;
+                }
+            }
+        } */
 
+        public static void UpdateIHPart(int PartID, InHousePart IHPart)
+        {
+            for (int i = 0; i < Parts.Count; i++)
+            {
+                if (Parts[i].GetType() == typeof(InHousePart))
+                {
+                    InHousePart newIHPart = (InHousePart)Parts[i];
+
+                    if (newIHPart.PartID == PartID)
+                    {
+                        newIHPart.Name = IHPart.Name;
+                        newIHPart.InStock = IHPart.InStock;
+                        newIHPart.Price = IHPart.Price;
+                        newIHPart.Min = IHPart.Min;
+                        newIHPart.Max = IHPart.Max;
+                        newIHPart.MachineID = IHPart.MachineID;
+                    }
+                }
+            }
+        }
+
+        public static void UpdateOSPart(int PartID, OutsourcedPart OSPart)
+        {
+            for (int i = 0; i < Parts.Count; i++)
+            {
+                if (Parts[i].GetType() == typeof(OutsourcedPart))
+                {
+                    OutsourcedPart newOSPart = (OutsourcedPart)Parts[i];
+
+                    if (newOSPart.PartID == PartID)
+                    {
+                        newOSPart.Name = OSPart.Name;
+                        newOSPart.InStock = OSPart.InStock;
+                        newOSPart.Price = OSPart.Price;
+                        newOSPart.Min = OSPart.Min;
+                        newOSPart.Max = OSPart.Max;
+                        newOSPart.CompanyName = OSPart.CompanyName;
+                    }
+                }
+            }
         }
 
     }

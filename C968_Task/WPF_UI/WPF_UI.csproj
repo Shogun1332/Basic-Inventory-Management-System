@@ -74,7 +74,6 @@
     <Compile Include="Add Part.xaml.cs">
       <DependentUpon>Add Part.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IMSCore.cs" />
     <Compile Include="Inhouse.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Modify Product.xaml.cs">
