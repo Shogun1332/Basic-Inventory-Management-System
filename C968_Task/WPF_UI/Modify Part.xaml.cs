@@ -19,6 +19,8 @@ namespace WPF_UI
     /// </summary>
     public partial class Modify_Part : Window
     {
+        bool IHRadio;
+        bool OSRadio;
         public Modify_Part(InHousePart IHPart)
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace WPF_UI
             mod_Max_TextBox.Text = IHPart.Max.ToString();
             mod_CompanyName_TextBox.Text = IHPart.MachineID.ToString();
             mod_Part_IH_Radio.IsChecked = true;
+            IHRadio = true;
         }
         public Modify_Part(OutsourcedPart OSPart)
         {
@@ -44,6 +47,7 @@ namespace WPF_UI
             mod_Max_TextBox.Text = OSPart.Max.ToString();
             mod_CompanyName_TextBox.Text = OSPart.CompanyName;
             mod_Part_Out_Radio.IsChecked = true;
+            OSRadio = true;
         }
 
         private void mod_Part_Save_Button_Click(object sender, RoutedEventArgs e)
@@ -53,13 +57,17 @@ namespace WPF_UI
             int maxTextVal;
             int invTextVal;
             decimal priceTextVal;
+            int partIDNum;
+            int machineIDNum;
 
             bool minParsable = int.TryParse(mod_Min_TextBox.Text, out minTextVal);
             bool maxParsable = int.TryParse(mod_Max_TextBox.Text, out maxTextVal);
             bool invParsable = int.TryParse(mod_Inventory_TextBox.Text, out invTextVal);
             bool priceParsable = decimal.TryParse(mod_Price_TextBox.Text, out priceTextVal);
+            bool partIDParsable = int.TryParse(mod_Part_ID_TextBox.Text, out partIDNum);
+            bool machineIDParsable = int.TryParse(mod_CompanyName_TextBox.Text, out machineIDNum);
 
-            if (!invParsable || !priceParsable || !minParsable || !maxParsable)
+            if (!invParsable || !priceParsable || !minParsable || !maxParsable || !partIDParsable || (!machineIDParsable && (bool)mod_Part_IH_Radio.IsChecked))
             {
                 if (!invParsable)
                 {
@@ -81,6 +89,16 @@ namespace WPF_UI
                     MessageBox.Show("Error Code 004: Maximum stock value must be a numeric value.");
                     return;
                 }
+                else if (!partIDParsable)
+                {
+                    MessageBox.Show("Error Code 007: Part ID must contain a numeric value.");
+                    return;
+                }
+                else if (!machineIDParsable && (bool)mod_Part_IH_Radio.IsChecked)
+                {
+                    MessageBox.Show("Error Code 008: Machine ID must contain a numeric value.");
+                    return;
+                }
             }
 
             //Controls to ensure numeric values are within appropriate levels
@@ -97,10 +115,22 @@ namespace WPF_UI
             }
 
             //Determine what type of part to update based on the radio buttons
-            if ((bool)mod_Part_IH_Radio.IsChecked)
+            if ((bool)mod_Part_IH_Radio.IsChecked && IHRadio)
             {
                 InHousePart inHouse = new InHousePart(int.Parse(mod_Part_ID_TextBox.Text), mod_Name_TextBox.Text, invTextVal, priceTextVal, minTextVal, maxTextVal, int.Parse(mod_CompanyName_TextBox.Text));
                 Inventory.UpdateIHPart(int.Parse(mod_Part_ID_TextBox.Text), inHouse);
+            }
+            else if ((bool)mod_Part_IH_Radio.IsChecked && OSRadio)
+            {
+                Inventory.RemovePart(int.Parse(mod_Part_ID_TextBox.Text));
+                InHousePart inHouse = new InHousePart(int.Parse(mod_Part_ID_TextBox.Text), mod_Name_TextBox.Text, invTextVal, priceTextVal, minTextVal, maxTextVal, int.Parse(mod_CompanyName_TextBox.Text));
+                Inventory.AddPart(inHouse);
+            }
+            else if ((bool)mod_Part_Out_Radio.IsChecked && IHRadio)
+            {
+                Inventory.RemovePart(int.Parse(mod_Part_ID_TextBox.Text));
+                OutsourcedPart OSPart = new OutsourcedPart(int.Parse(mod_Part_ID_TextBox.Text), mod_Name_TextBox.Text, invTextVal, priceTextVal, minTextVal, maxTextVal, mod_CompanyName_TextBox.Text);
+                Inventory.AddPart(OSPart);
             }
             else
             {

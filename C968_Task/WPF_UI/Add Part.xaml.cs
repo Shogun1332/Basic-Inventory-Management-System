@@ -33,13 +33,17 @@ namespace WPF_UI
             int maxTextVal;
             int invTextVal;
             decimal priceTextVal;
+            int partIDNum;
+            int machineIDNum;
 
             bool minParsable = int.TryParse(add_Min_TextBox.Text, out minTextVal);
             bool maxParsable = int.TryParse(add_Max_TextBox.Text, out maxTextVal);
             bool invParsable = int.TryParse(add_Inventory_TextBox.Text, out invTextVal);
             bool priceParsable = decimal.TryParse(add_Price_TextBox.Text, out priceTextVal);
+            bool partIDParsable = int.TryParse(add_Part_ID_TextBox.Text, out partIDNum);
+            bool machineIDParsable = int.TryParse(add_CompanyName_TextBox.Text, out machineIDNum);
 
-            if (!invParsable || !priceParsable || !minParsable || !maxParsable)
+            if (!invParsable || !priceParsable || !minParsable || !maxParsable || !partIDParsable || (!machineIDParsable && (bool)add_Part_IH_Radio.IsChecked))
             {
                 if (!invParsable)
                 {
@@ -59,6 +63,16 @@ namespace WPF_UI
                 else if (!maxParsable)
                 {
                     MessageBox.Show("Error Code 004: Maximum stock value must be a numeric value.");
+                    return;
+                }
+                else if (!partIDParsable)
+                {
+                    MessageBox.Show("Error Code 007: Part ID must contain a numeric value.");
+                    return;
+                }
+                else if (!machineIDParsable && (bool)add_Part_IH_Radio.IsChecked)
+                {
+                    MessageBox.Show("Error Code 008: Machine ID must contain a numeric value.");
                     return;
                 }
             }

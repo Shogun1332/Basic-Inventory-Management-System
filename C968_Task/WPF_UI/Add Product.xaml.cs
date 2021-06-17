@@ -56,7 +56,12 @@ namespace WPF_UI
 
         private void product_Remove_Button_Click(object sender, RoutedEventArgs e)
         {
+            List<Part> deleteList = new List<Part>();
             foreach (Part part in product_DataGrid.SelectedItems)
+            {
+                deleteList.Add(part);
+            }
+            foreach (Part part in deleteList)
             {
                 preSaveIncludedParts.Remove(part);
             }
@@ -69,13 +74,15 @@ namespace WPF_UI
             int maxTextVal;
             int invTextVal;
             decimal priceTextVal;
+            int prodIDNum;
 
             bool minParsable = int.TryParse(add_Prod_Min_TextBox.Text, out minTextVal);
             bool maxParsable = int.TryParse(add_Prod_Max_TextBox.Text, out maxTextVal);
             bool invParsable = int.TryParse(add_Prod_Inventory_TextBox.Text, out invTextVal);
             bool priceParsable = decimal.TryParse(add_Prod_Price_TextBox.Text, out priceTextVal);
+            bool prodIDParsable = int.TryParse(add_Prod_ID_TextBox.Text, out prodIDNum);
 
-            if (!invParsable || !priceParsable || !minParsable || !maxParsable)
+            if (!invParsable || !priceParsable || !minParsable || !maxParsable || !prodIDParsable)
             {
                 if (!invParsable)
                 {
@@ -95,6 +102,11 @@ namespace WPF_UI
                 else if (!maxParsable)
                 {
                     MessageBox.Show("Error Code 004: Maximum stock value must be a numeric value.");
+                    return;
+                }
+                else if (!prodIDParsable)
+                {
+                    MessageBox.Show("Error Code 007: Product ID must contain a numeric value.");
                     return;
                 }
             }
