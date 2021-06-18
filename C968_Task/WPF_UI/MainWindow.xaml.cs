@@ -123,7 +123,7 @@ namespace WPF_UI
             {
                 return;
             }
-            else if (delProd.IncludedParts.Count != 0)
+            if (delProd.IncludedParts.Count > 0)
             {
                 MessageBox.Show("Unable to delete product while there are parts associated with it. Please remove the included parts and try again.", "Removal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

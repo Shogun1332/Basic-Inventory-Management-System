@@ -76,7 +76,6 @@ namespace WPF_UI
             {
                 localIncludedParts.Remove(part);
             }
-            localIncludedParts.ResetBindings();
         }
 
         private void mod_Product_Save_Button_Click(object sender, RoutedEventArgs e)

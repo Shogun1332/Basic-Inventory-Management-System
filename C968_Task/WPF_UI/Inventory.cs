@@ -67,25 +67,16 @@ namespace WPF_UI
 
 
         //Removal Methods
-        public static bool RemoveProduct(int ProdID)
+        public static void RemoveProduct(int ProdID)
         {
             List<Product> deleteList = new List<Product>();
-            bool prodFound = false;
             foreach(Product product in Products)
             {
                 if (ProdID == product.ProductID)
                 {
-                    if (product.IncludedParts.Count != 0)
+                    if (product.IncludedParts.Count == 0)
                     {
-                        prodFound = true;
                         deleteList.Add(product);
-                        return prodFound;
-                    }
-                    else
-                    {
-                        prodFound = false;
-                        MessageBox.Show("Unable to delete product while there are parts associated with it. Please remove the included parts and try again.", "Removal Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return prodFound;
                     }
                 }
             }
@@ -93,7 +84,7 @@ namespace WPF_UI
             {
                 Products.Remove(product);
             }
-            return prodFound;
+            return;
         }
 
         public static bool RemovePart(int PartID)
